@@ -1,0 +1,2947 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://www.kakaocode.com/scoreboard -->
+<html>
+<script id="allow-copy_script">
+  (function agent() {
+    let isUnlockingCached = false
+    const isUnlocking = () => isUnlockingCached
+    document.addEventListener('allow_copy', event => {
+      const {
+        unlock
+      } = event.detail
+      isUnlockingCached = unlock
+    })
+
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = e => {
+      if (isUnlocking()) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach(evt => {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()
+</script>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>카카오 코드 페스티벌 2018 예선</title>
+  <link href="./normalize.css" rel="stylesheet" type="text/css">
+  <link href="./scoreboard.css" rel="stylesheet" type="text/css">
+  <link href="./jquery.badger.css" rel="stylesheet" type="text/css">
+  <link href="./balloon.min.css" rel="stylesheet" type="text/css">
+
+  <meta http-equiv="Content-Language" content="ko, en">
+
+  <script type="text/javascript" src="./require.js"></script>
+  <style>
+    #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+  </style>
+  <script type="text/javascript" src="./config.js"></script>
+  <script type="text/javascript" src="./require-config.js"></script>
+  <script type="text/javascript">
+    // production only settings (minified)
+    if (config.environment !== 'develop') {
+      require.config({
+        paths: {
+          "app": "spotboard-all.min"
+        }
+      });
+    }
+    require(['app']);
+  </script>
+
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="app" src="./spotboard-all.min.js"></script>
+  <style type="text/css" id="problem-balloon-style">
+    .solved-0 .solved-count {
+      background-color: #4f0305;
+    }
+
+    .solved-1 .solved-count {
+      background-color: #682a13;
+    }
+
+    .solved-2 .solved-count {
+      background-color: #4f2d03;
+    }
+
+    .solved-3 .solved-count {
+      background-color: #685c13;
+    }
+
+    .solved-4 .solved-count {
+      background-color: #434f03;
+    }
+
+    .solved-5 .solved-count {
+      background-color: #426813;
+    }
+
+    .solved-6 .solved-count {
+      background-color: #164f03;
+    }
+
+    .problem-result.problem-0 b:before {
+      content: "A";
+    }
+
+    .balloon.problem-0 {
+      background-image: url(assets/balloons/sample0.png);
+    }
+
+    .problem-result.problem-1 b:before {
+      content: "B";
+    }
+
+    .balloon.problem-1 {
+      background-image: url(assets/balloons/sample1.png);
+    }
+
+    .problem-result.problem-2 b:before {
+      content: "C";
+    }
+
+    .balloon.problem-2 {
+      background-image: url(assets/balloons/sample2.png);
+    }
+
+    .problem-result.problem-3 b:before {
+      content: "D";
+    }
+
+    .balloon.problem-3 {
+      background-image: url(assets/balloons/sample3.png);
+    }
+
+    .problem-result.problem-4 b:before {
+      content: "E";
+    }
+
+    .balloon.problem-4 {
+      background-image: url(assets/balloons/sample4.png);
+    }
+
+    .problem-result.problem-5 b:before {
+      content: "F";
+    }
+
+    .balloon.problem-5 {
+      background-image: url(assets/balloons/sample5.png);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper" class="no-animation">
+
+    <div id="header">
+      <span id="time-elapsed">06:00</span>
+      <span id="clock-icon" class="icon"></span>
+      <span id="events-icon" class="icon hoverable" data-balloon="Show/Hide Events Timeline" data-balloon-pos="down"></span>
+      <span id="feed-all-icon" class="icon hoverable" data-balloon="Update All Runs" data-balloon-pos="down"></span>
+      <span id="feed-one-icon" class="icon hoverable" data-balloon="Update Single Run" data-balloon-pos="down"></span>
+      <span id="feed-auto-icon" class="icon hoverable playing" data-balloon="Automatically Update" data-balloon-pos="down"></span>
+      <span id="update-icon" class="icon hoverable" data-balloon="Feed New Run" data-balloon-pos="down"></span>
+      <span id="notify-icon" class="icon hoverable" data-balloon="Toggle Desktop Notification" data-balloon-pos="down"></span>
+      <input type="text" id="search-input">
+      <div id="page-nav">
+        <div id="page-label">Page <span class="current-page">1</span> of <span class="max-page">1</span></div>
+        <div>
+          <span id="page-left" class="disabled">&lt;&lt;</span>
+          <span id="page-right" class="disabled">&gt;&gt;</span>
+        </div>
+      </div>
+
+      <h1 id="contest-title" class="no-more-update">카카오 코드 페스티벌 2018 예선</h1>
+      <div class="clear"> </div><!-- overflow: auto trick doesn't work here-->
+    </div>
+
+    <!-- Team List -->
+    <div id="body">
+      <div id="team-list">
+        <div id="team-24138" class="team solved-6 visible-first">
+          <span class="solved-count first">6</span>
+          <span class="team-rank suffix-st">1</span>
+          <span class="team-penalty">450</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24138" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24138" data-balloon="Solved at 13 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="24138" data-balloon="Solved at 67 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24138" data-balloon="Solved at 24 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="24138" data-balloon="Solved at 44 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-5 solved" data-problem-id="5" data-team-id="24138" data-balloon="Solved at 137 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">애교뿜뿜 라이언 15</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-27144" class="team solved-6">
+          <span class="solved-count">6</span>
+          <span class="team-rank suffix-nd">2</span>
+          <span class="team-penalty">564</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="27144" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="27144" data-balloon="Solved at 16 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved solved-first" data-problem-id="2" data-team-id="27144" data-balloon="Solved at 44 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="27144" data-balloon="Solved at 64 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="27144" data-balloon="Solved at 94 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-5 solved" data-problem-id="5" data-team-id="27144" data-balloon="Solved at 201 min." data-balloon-pos="down">
+              <b class="problem-result-text">+6</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">리듬타는 무지 21</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28083" class="team solved-6">
+          <span class="solved-count">6</span>
+          <span class="team-rank suffix-rd">3</span>
+          <span class="team-penalty">685</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28083" data-balloon="Solved at 45 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28083" data-balloon="Solved at 50 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="28083" data-balloon="Solved at 171 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28083" data-balloon="Solved at 136 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved solved-first" data-problem-id="4" data-team-id="28083" data-balloon="Solved at 41 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-5 solved solved-first" data-problem-id="5" data-team-id="28083" data-balloon="Solved at 122 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name tube">기뻐하는 튜브 60</span>
+            <span class="team-represents">tube</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24967" class="team solved-6">
+          <span class="solved-count">6</span>
+          <span class="team-rank suffix-th">4</span>
+          <span class="team-penalty">822</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24967" data-balloon="Solved at 9 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24967" data-balloon="Solved at 34 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="24967" data-balloon="Solved at 155 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24967" data-balloon="Solved at 53 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="24967" data-balloon="Solved at 101 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-5 solved" data-problem-id="5" data-team-id="24967" data-balloon="Solved at 290 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">리듬타는 어피치 44</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26419" class="team solved-6">
+          <span class="solved-count">6</span>
+          <span class="team-rank suffix-th">5</span>
+          <span class="team-penalty">861</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved solved-first" data-problem-id="0" data-team-id="26419" data-balloon="Solved at 2 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26419" data-balloon="Solved at 18 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26419" data-balloon="Solved at 192 min." data-balloon-pos="down">
+              <b class="problem-result-text">+8</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26419" data-balloon="Solved at 27 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="26419" data-balloon="Solved at 65 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-5 solved" data-problem-id="5" data-team-id="26419" data-balloon="Solved at 137 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">기뻐하는 콘 96</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-23174" class="team solved-6">
+          <span class="solved-count last">6</span>
+          <span class="team-rank suffix-th">6</span>
+          <span class="team-penalty">867</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="23174" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="23174" data-balloon="Solved at 14 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="23174" data-balloon="Solved at 76 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="23174" data-balloon="Solved at 121 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="23174" data-balloon="Solved at 172 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-5 solved" data-problem-id="5" data-team-id="23174" data-balloon="Solved at 299 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">기뻐하는 라이언 51</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26340" class="team solved-5">
+          <span class="solved-count first">5</span>
+          <span class="team-rank suffix-th">7</span>
+          <span class="team-penalty">403</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26340" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26340" data-balloon="Solved at 12 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26340" data-balloon="Solved at 60 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26340" data-balloon="Solved at 117 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="26340" data-balloon="Solved at 170 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26340">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">기뻐하는 콘 17</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28780" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">8</span>
+          <span class="team-penalty">425</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28780" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28780" data-balloon="Solved at 11 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="28780" data-balloon="Solved at 198 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28780" data-balloon="Solved at 29 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="28780" data-balloon="Solved at 103 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28780">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name jayg">즐거운 제이지 57</span>
+            <span class="team-represents">jayg</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26086" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">9</span>
+          <span class="team-penalty">469</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26086" data-balloon="Solved at 3 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26086" data-balloon="Solved at 15 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26086" data-balloon="Solved at 126 min." data-balloon-pos="down">
+              <b class="problem-result-text">+7</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26086" data-balloon="Solved at 45 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="26086" data-balloon="Solved at 80 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26086">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">신난 콘 63</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26417" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">10</span>
+          <span class="team-penalty">486</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26417" data-balloon="Solved at 6 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26417" data-balloon="Solved at 12 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26417" data-balloon="Solved at 158 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26417" data-balloon="Solved at 54 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="26417" data-balloon="Solved at 96 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26417">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">기뻐하는 콘 94</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28476" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">11</span>
+          <span class="team-penalty">523</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28476" data-balloon="Solved at 3 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28476" data-balloon="Solved at 11 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="28476" data-balloon="Solved at 77 min." data-balloon-pos="down">
+              <b class="problem-result-text">+6</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28476" data-balloon="Solved at 110 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="28476" data-balloon="Solved at 182 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28476">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name frodo">귀여운 프로도 53</span>
+            <span class="team-represents">frodo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25503" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">12</span>
+          <span class="team-penalty">618</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved solved-first" data-problem-id="0" data-team-id="25503" data-balloon="Solved at 2 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved solved-first" data-problem-id="1" data-team-id="25503" data-balloon="Solved at 6 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25503" data-balloon="Solved at 191 min." data-balloon-pos="down">
+              <b class="problem-result-text">+7</b>
+            </span>
+
+            <span class="problem-result problem-3 solved solved-first" data-problem-id="3" data-team-id="25503" data-balloon="Solved at 21 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="25503" data-balloon="Solved at 158 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-5 failed" data-problem-id="5" data-team-id="25503">
+              <b class="problem-result-text">-17</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">하트뿅뿅 어피치 80</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25297" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">13</span>
+          <span class="team-penalty">640</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25297" data-balloon="Solved at 6 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25297" data-balloon="Solved at 27 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25297" data-balloon="Solved at 95 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25297" data-balloon="Solved at 124 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="25297" data-balloon="Solved at 268 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-5 failed" data-problem-id="5" data-team-id="25297">
+              <b class="problem-result-text">-3</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">멋쟁이 어피치 74</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26506" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">14</span>
+          <span class="team-penalty">664</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26506" data-balloon="Solved at 29 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26506" data-balloon="Solved at 37 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="26506">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26506" data-balloon="Solved at 23 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="26506" data-balloon="Solved at 113 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-5 solved" data-problem-id="5" data-team-id="26506" data-balloon="Solved at 342 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">엄지척 콘 83</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25366" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">15</span>
+          <span class="team-penalty">724</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25366" data-balloon="Solved at 7 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25366" data-balloon="Solved at 17 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25366" data-balloon="Solved at 155 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25366" data-balloon="Solved at 130 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="25366" data-balloon="Solved at 215 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-5 failed" data-problem-id="5" data-team-id="25366">
+              <b class="problem-result-text">-1</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">편안한 어피치 43</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25488" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">16</span>
+          <span class="team-penalty">804</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25488" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25488" data-balloon="Solved at 68 min." data-balloon-pos="down">
+              <b class="problem-result-text">+10</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25488" data-balloon="Solved at 214 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25488" data-balloon="Solved at 86 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="25488" data-balloon="Solved at 132 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="25488">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">하트뿅뿅 어피치 65</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25453" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">17</span>
+          <span class="team-penalty">811</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25453" data-balloon="Solved at 8 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25453" data-balloon="Solved at 33 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25453" data-balloon="Solved at 167 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25453" data-balloon="Solved at 96 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="25453" data-balloon="Solved at 227 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-5 failed" data-problem-id="5" data-team-id="25453">
+              <b class="problem-result-text">-14</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">하트뿅뿅 어피치 30</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26870" class="team solved-5">
+          <span class="solved-count">5</span>
+          <span class="team-rank suffix-th">18</span>
+          <span class="team-penalty">904</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26870" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26870" data-balloon="Solved at 20 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26870" data-balloon="Solved at 103 min." data-balloon-pos="down">
+              <b class="problem-result-text">+6</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26870" data-balloon="Solved at 149 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="26870" data-balloon="Solved at 348 min." data-balloon-pos="down">
+              <b class="problem-result-text">+7</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26870">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">초롱초롱 무지 47</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26629" class="team solved-5">
+          <span class="solved-count last">5</span>
+          <span class="team-rank suffix-th">19</span>
+          <span class="team-penalty">1433</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26629" data-balloon="Solved at 187 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26629" data-balloon="Solved at 196 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26629" data-balloon="Solved at 256 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26629" data-balloon="Solved at 310 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="26629" data-balloon="Solved at 324 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26629">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">편안한 콘 06</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26041" class="team solved-4">
+          <span class="solved-count first">4</span>
+          <span class="team-rank suffix-th">20</span>
+          <span class="team-penalty">199</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved solved-first" data-problem-id="0" data-team-id="26041" data-balloon="Solved at 2 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26041" data-balloon="Solved at 20 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26041" data-balloon="Solved at 64 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26041" data-balloon="Solved at 33 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="26041">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26041">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">신난 콘 18</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24641" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-st">21</span>
+          <span class="team-penalty">324</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24641" data-balloon="Solved at 14 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24641" data-balloon="Solved at 22 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="24641">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24641" data-balloon="Solved at 107 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="24641" data-balloon="Solved at 81 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="24641">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">초롱초롱 어피치 18</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-27370" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-nd">22</span>
+          <span class="team-penalty">356</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="27370" data-balloon="Solved at 6 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="27370" data-balloon="Solved at 13 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="27370" data-balloon="Solved at 132 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="27370" data-balloon="Solved at 125 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="27370">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="27370">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">엄지척 무지 47</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-23351" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-rd">23</span>
+          <span class="team-penalty">376</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="23351" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="23351" data-balloon="Solved at 20 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="23351">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="23351" data-balloon="Solved at 47 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="23351" data-balloon="Solved at 144 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="23351">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">멋쟁이 라이언 28</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25892" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">24</span>
+          <span class="team-penalty">384</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25892" data-balloon="Solved at 3 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25892" data-balloon="Solved at 36 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25892" data-balloon="Solved at 142 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25892" data-balloon="Solved at 183 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="25892">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="25892">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">즐거운 콘 69</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28573" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">25</span>
+          <span class="team-penalty">424</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28573" data-balloon="Solved at 62 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28573" data-balloon="Solved at 75 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="28573">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28573" data-balloon="Solved at 104 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="28573" data-balloon="Solved at 183 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28573">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name frodo">리듬타는 프로도 50</span>
+            <span class="team-represents">frodo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28170" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">26</span>
+          <span class="team-penalty">438</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28170" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28170" data-balloon="Solved at 20 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="28170" data-balloon="Solved at 219 min." data-balloon-pos="down">
+              <b class="problem-result-text">+6</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28170" data-balloon="Solved at 75 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="28170">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28170">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name frodo">즐거운 프로도 47</span>
+            <span class="team-represents">frodo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25682" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">27</span>
+          <span class="team-penalty">449</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25682" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25682" data-balloon="Solved at 37 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25682" data-balloon="Solved at 222 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25682" data-balloon="Solved at 86 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="25682">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="25682">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">생각하는 어피치 59</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25552" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">28</span>
+          <span class="team-penalty">462</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25552" data-balloon="Solved at 38 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25552" data-balloon="Solved at 56 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 failed" data-problem-id="2" data-team-id="25552">
+              <b class="problem-result-text">-2</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25552" data-balloon="Solved at 92 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="25552" data-balloon="Solved at 196 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="25552">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">여유로운 어피치 29</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-27233" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">29</span>
+          <span class="team-penalty">469</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="27233" data-balloon="Solved at 9 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="27233" data-balloon="Solved at 36 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="27233" data-balloon="Solved at 120 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="27233" data-balloon="Solved at 164 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="27233">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="27233">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">기뻐하는 무지 10</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-27039" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">30</span>
+          <span class="team-penalty">472</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="27039" data-balloon="Solved at 8 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="27039" data-balloon="Solved at 22 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="27039">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="27039" data-balloon="Solved at 96 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="27039" data-balloon="Solved at 286 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="27039">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">귀여운 무지 16</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24645" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-st">31</span>
+          <span class="team-penalty">493</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24645" data-balloon="Solved at 30 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24645" data-balloon="Solved at 56 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-2 failed" data-problem-id="2" data-team-id="24645">
+              <b class="problem-result-text">-7</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24645" data-balloon="Solved at 110 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="24645" data-balloon="Solved at 157 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-5 failed" data-problem-id="5" data-team-id="24645">
+              <b class="problem-result-text">-2</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">초롱초롱 어피치 22</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-27231" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-nd">32</span>
+          <span class="team-penalty">507</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="27231" data-balloon="Solved at 20 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="27231" data-balloon="Solved at 25 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 failed" data-problem-id="2" data-team-id="27231">
+              <b class="problem-result-text">-4</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="27231" data-balloon="Solved at 51 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="27231" data-balloon="Solved at 231 min." data-balloon-pos="down">
+              <b class="problem-result-text">+8</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="27231">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">기뻐하는 무지 08</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26218" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-rd">33</span>
+          <span class="team-penalty">520</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26218" data-balloon="Solved at 9 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26218" data-balloon="Solved at 33 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26218" data-balloon="Solved at 295 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26218" data-balloon="Solved at 63 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="26218">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26218">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">귀여운 콘 95</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-23126" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">34</span>
+          <span class="team-penalty">529</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="23126" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="23126" data-balloon="Solved at 30 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="23126" data-balloon="Solved at 149 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="23126" data-balloon="Solved at 246 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="23126">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="23126">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">기뻐하는 라이언 03</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24557" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">35</span>
+          <span class="team-penalty">548</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24557" data-balloon="Solved at 13 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24557" data-balloon="Solved at 53 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="24557">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24557" data-balloon="Solved at 221 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="24557" data-balloon="Solved at 181 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="24557">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">즐거운 어피치 34</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28642" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">36</span>
+          <span class="team-penalty">549</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved solved-first" data-problem-id="0" data-team-id="28642" data-balloon="Solved at 2 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28642" data-balloon="Solved at 15 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="28642" data-balloon="Solved at 325 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28642" data-balloon="Solved at 167 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="28642">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28642">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name frodo">기뻐하는 프로도 19</span>
+            <span class="team-represents">frodo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24050" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">37</span>
+          <span class="team-penalty">562</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24050" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24050" data-balloon="Solved at 25 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="24050">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24050" data-balloon="Solved at 208 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="24050" data-balloon="Solved at 244 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="24050">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">손흔드는 라이언 27</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25401" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">38</span>
+          <span class="team-penalty">571</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25401" data-balloon="Solved at 3 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25401" data-balloon="Solved at 69 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="25401">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25401" data-balloon="Solved at 153 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="25401" data-balloon="Solved at 226 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="25401">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">편안한 어피치 78</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25837" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">39</span>
+          <span class="team-penalty">582</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25837" data-balloon="Solved at 7 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25837" data-balloon="Solved at 29 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="25837">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25837" data-balloon="Solved at 181 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="25837" data-balloon="Solved at 305 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="25837">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">즐거운 콘 14</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-23901" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">40</span>
+          <span class="team-penalty">587</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="23901" data-balloon="Solved at 8 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="23901" data-balloon="Solved at 39 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="23901" data-balloon="Solved at 167 min." data-balloon-pos="down">
+              <b class="problem-result-text">+6</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="23901" data-balloon="Solved at 193 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="23901">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="23901">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">부끄러운 라이언 78</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-27830" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-st">41</span>
+          <span class="team-penalty">611</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="27830" data-balloon="Solved at 6 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="27830" data-balloon="Solved at 16 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="27830" data-balloon="Solved at 212 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="27830" data-balloon="Solved at 277 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="27830">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="27830">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name tube">귀여운 튜브 07</span>
+            <span class="team-represents">tube</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28907" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-nd">42</span>
+          <span class="team-penalty">621</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28907" data-balloon="Solved at 19 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28907" data-balloon="Solved at 86 min." data-balloon-pos="down">
+              <b class="problem-result-text">+7</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="28907">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28907" data-balloon="Solved at 124 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="28907" data-balloon="Solved at 212 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28907">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name jayg">초롱초롱 제이지 84</span>
+            <span class="team-represents">jayg</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24230" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-rd">43</span>
+          <span class="team-penalty">634</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24230" data-balloon="Solved at 89 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24230" data-balloon="Solved at 95 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="24230">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24230" data-balloon="Solved at 148 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="24230" data-balloon="Solved at 222 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="24230">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">용감한 라이언 07</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-27323" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">44</span>
+          <span class="team-penalty">638</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="27323" data-balloon="Solved at 38 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="27323" data-balloon="Solved at 47 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="27323" data-balloon="Solved at 189 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="27323" data-balloon="Solved at 304 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 failed" data-problem-id="4" data-team-id="27323">
+              <b class="problem-result-text">-1</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="27323">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">엄지척 무지 00</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25746" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">45</span>
+          <span class="team-penalty">666</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25746" data-balloon="Solved at 9 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25746" data-balloon="Solved at 63 min." data-balloon-pos="down">
+              <b class="problem-result-text">+6</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25746" data-balloon="Solved at 274 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25746" data-balloon="Solved at 120 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="25746">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5 failed" data-problem-id="5" data-team-id="25746">
+              <b class="problem-result-text">-3</b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">부끄러운 어피치 23</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-25955" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">46</span>
+          <span class="team-penalty">675</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="25955" data-balloon="Solved at 7 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="25955" data-balloon="Solved at 30 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="25955" data-balloon="Solved at 346 min." data-balloon-pos="down">
+              <b class="problem-result-text">+6</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="25955" data-balloon="Solved at 112 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="25955">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="25955">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">초롱초롱 콘 32</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28387" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">47</span>
+          <span class="team-penalty">690</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28387" data-balloon="Solved at 3 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28387" data-balloon="Solved at 18 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="28387" data-balloon="Solved at 347 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28387" data-balloon="Solved at 202 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="28387">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28387">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name frodo">신난 프로도 64</span>
+            <span class="team-represents">frodo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24722" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">48</span>
+          <span class="team-penalty">711</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24722" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24722" data-balloon="Solved at 23 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="24722" data-balloon="Solved at 197 min." data-balloon-pos="down">
+              <b class="problem-result-text">+7</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24722" data-balloon="Solved at 347 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="24722">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="24722">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">초롱초롱 어피치 99</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-23870" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">49</span>
+          <span class="team-penalty">715</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="23870" data-balloon="Solved at 8 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="23870" data-balloon="Solved at 28 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="23870" data-balloon="Solved at 268 min." data-balloon-pos="down">
+              <b class="problem-result-text">+15</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="23870" data-balloon="Solved at 91 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="23870">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="23870">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">부끄러운 라이언 47</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-29112" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">50</span>
+          <span class="team-penalty">727</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="29112" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="29112" data-balloon="Solved at 33 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="29112" data-balloon="Solved at 313 min." data-balloon-pos="down">
+              <b class="problem-result-text">+9</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="29112" data-balloon="Solved at 76 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="29112">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="29112">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name neo">즐거운 네오 89</span>
+            <span class="team-represents">neo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-23891" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-st">51</span>
+          <span class="team-penalty">743</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="23891" data-balloon="Solved at 10 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="23891" data-balloon="Solved at 31 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 failed" data-problem-id="2" data-team-id="23891">
+              <b class="problem-result-text">-8</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="23891" data-balloon="Solved at 325 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="23891" data-balloon="Solved at 277 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="23891">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">부끄러운 라이언 68</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26473" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-nd">52</span>
+          <span class="team-penalty">769</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26473" data-balloon="Solved at 6 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26473" data-balloon="Solved at 143 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26473" data-balloon="Solved at 180 min." data-balloon-pos="down">
+              <b class="problem-result-text">+7</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26473" data-balloon="Solved at 260 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="26473">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26473">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">엄지척 콘 50</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-29178" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-rd">53</span>
+          <span class="team-penalty">779</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="29178" data-balloon="Solved at 25 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="29178" data-balloon="Solved at 32 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="29178" data-balloon="Solved at 204 min." data-balloon-pos="down">
+              <b class="problem-result-text">+7</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="29178" data-balloon="Solved at 298 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 failed" data-problem-id="4" data-team-id="29178">
+              <b class="problem-result-text">-1</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="29178">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name neo">초롱초롱 네오 55</span>
+            <span class="team-represents">neo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28663" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">54</span>
+          <span class="team-penalty">779</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28663" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28663" data-balloon="Solved at 29 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="28663" data-balloon="Solved at 351 min." data-balloon-pos="down">
+              <b class="problem-result-text">+12</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28663" data-balloon="Solved at 74 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="28663">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28663">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name frodo">기뻐하는 프로도 40</span>
+            <span class="team-represents">frodo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-22737" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">55</span>
+          <span class="team-penalty">812</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="22737" data-balloon="Solved at 17 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="22737" data-balloon="Solved at 207 min." data-balloon-pos="down">
+              <b class="problem-result-text">+9</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="22737">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="22737" data-balloon="Solved at 226 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4 solved" data-problem-id="4" data-team-id="22737" data-balloon="Solved at 162 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="22737">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">초롱초롱 라이언 14</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26806" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">56</span>
+          <span class="team-penalty">919</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26806" data-balloon="Solved at 4 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26806" data-balloon="Solved at 134 min." data-balloon-pos="down">
+              <b class="problem-result-text">+12</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26806" data-balloon="Solved at 189 min." data-balloon-pos="down">
+              <b class="problem-result-text">+4</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26806" data-balloon="Solved at 272 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="26806">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26806">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">즐거운 무지 83</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-23821" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">57</span>
+          <span class="team-penalty">991</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="23821" data-balloon="Solved at 39 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="23821" data-balloon="Solved at 64 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="23821" data-balloon="Solved at 358 min." data-balloon-pos="down">
+              <b class="problem-result-text">+16</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="23821" data-balloon="Solved at 130 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="23821">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="23821">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">생각하는 라이언 98</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-26044" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">58</span>
+          <span class="team-penalty">1113</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="26044" data-balloon="Solved at 252 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="26044" data-balloon="Solved at 262 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="26044" data-balloon="Solved at 242 min." data-balloon-pos="down">
+              <b class="problem-result-text">+3</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="26044" data-balloon="Solved at 297 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="26044">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="26044">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name con">신난 콘 21</span>
+            <span class="team-represents">con</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-23851" class="team solved-4">
+          <span class="solved-count">4</span>
+          <span class="team-rank suffix-th">59</span>
+          <span class="team-penalty">1346</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="23851" data-balloon="Solved at 142 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="23851" data-balloon="Solved at 210 min." data-balloon-pos="down">
+              <b class="problem-result-text">+12</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="23851" data-balloon="Solved at 347 min." data-balloon-pos="down">
+              <b class="problem-result-text">+5</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="23851" data-balloon="Solved at 267 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="23851">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="23851">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">부끄러운 라이언 28</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28343" class="team solved-4">
+          <span class="solved-count last">4</span>
+          <span class="team-rank suffix-th">60</span>
+          <span class="team-penalty">1362</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28343" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28343" data-balloon="Solved at 302 min." data-balloon-pos="down">
+              <b class="problem-result-text">+10</b>
+            </span>
+
+            <span class="problem-result problem-2 solved" data-problem-id="2" data-team-id="28343" data-balloon="Solved at 309 min." data-balloon-pos="down">
+              <b class="problem-result-text">+10</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28343" data-balloon="Solved at 346 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="28343">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28343">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name frodo">신난 프로도 20</span>
+            <span class="team-represents">frodo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24656" class="team solved-3">
+          <span class="solved-count first">3</span>
+          <span class="team-rank suffix-st">61</span>
+          <span class="team-penalty">106</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24656" data-balloon="Solved at 7 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24656" data-balloon="Solved at 20 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="24656">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24656" data-balloon="Solved at 79 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4 failed" data-problem-id="4" data-team-id="24656">
+              <b class="problem-result-text">-10</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="24656">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name apeach">초롱초롱 어피치 33</span>
+            <span class="team-represents">apeach</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-24436" class="team solved-3">
+          <span class="solved-count">3</span>
+          <span class="team-rank suffix-nd">62</span>
+          <span class="team-penalty">122</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="24436" data-balloon="Solved at 9 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="24436" data-balloon="Solved at 25 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="24436">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="24436" data-balloon="Solved at 48 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-4 failed" data-problem-id="4" data-team-id="24436">
+              <b class="problem-result-text">-7</b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="24436">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name ryan">젠틀한 라이언 13</span>
+            <span class="team-represents">ryan</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-28705" class="team solved-3">
+          <span class="solved-count">3</span>
+          <span class="team-rank suffix-rd">63</span>
+          <span class="team-penalty">145</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="28705" data-balloon="Solved at 23 min." data-balloon-pos="down">
+              <b class="problem-result-text">+1</b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="28705" data-balloon="Solved at 14 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-2 failed" data-problem-id="2" data-team-id="28705">
+              <b class="problem-result-text">-5</b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="28705" data-balloon="Solved at 88 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="28705">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="28705">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name frodo">기뻐하는 프로도 82</span>
+            <span class="team-represents">frodo</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="team-27359" class="team solved-3">
+          <span class="solved-count last">3</span>
+          <span class="team-rank suffix-th">64</span>
+          <span class="team-penalty">199</span>
+          <div class="results">
+
+            <span class="problem-result problem-0 solved" data-problem-id="0" data-team-id="27359" data-balloon="Solved at 5 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-1 solved" data-problem-id="1" data-team-id="27359" data-balloon="Solved at 40 min." data-balloon-pos="down">
+              <b class="problem-result-text">+2</b>
+            </span>
+
+            <span class="problem-result problem-2" data-problem-id="2" data-team-id="27359">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-3 solved" data-problem-id="3" data-team-id="27359" data-balloon="Solved at 114 min." data-balloon-pos="down">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-4" data-problem-id="4" data-team-id="27359">
+              <b class="problem-result-text"></b>
+            </span>
+
+            <span class="problem-result problem-5" data-problem-id="5" data-team-id="27359">
+              <b class="problem-result-text"></b>
+            </span>
+
+          </div>
+          <div class="balloons"></div>
+          <div class="team-title">
+            <span class="team-name muzi">엄지척 무지 36</span>
+            <span class="team-represents">muzi</span>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div id="credits">
+        <span>
+          <a href="https://github.com/spotboard/spotboard" target="_blank"><strong>Spotboard</strong></a>
+          <span id="spotboard-version">v0.7.0</span> from
+          <a href="http://www.algospot.com/" target="_blank">algospot.com</a>,
+          <a href="https://github.com/wookayin" target="_blank"><strong>wookayin</strong></a>
+          and
+          <a href="https://github.com/beingryu" target="_blank"><strong>Being</strong></a>
+        </span>
+        <span id="system-information">Baekjoon Online Judge Version 20180804 (Saturday, August 04 2018)</span>
+        <span>Icons from <a href="http://www.fatcow.com/free-icons" target="_blank">FatCow</a></span>
+      </div>
+
+      <!-- Dashboard -->
+      <div id="dashboard">
+        <h2>
+          Recent events ::
+          <a id="events-filter"></a>
+        </h2>
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+          <ul class="runs" style="overflow: hidden; width: auto; height: 100%;">
+            <li class="run failed" data-runid="9598593">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (359 min.)
+            </li>
+            <li class="run failed" data-runid="9598560">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (359 min.)
+            </li>
+            <li class="run failed" data-runid="9598554">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 68</span> got <span class="status">NO</span> on <span class="problem">C</span>! (359 min.)
+            </li>
+            <li class="run failed" data-runid="9598546">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (359 min.)
+            </li>
+            <li class="run failed" data-runid="9598528">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (359 min.)
+            </li>
+            <li class="run failed" data-runid="9598523">
+              <div class="balloon problem-5"></div> Team <span class="team">멋쟁이 어피치 74</span> got <span class="status">NO</span> on <span class="problem">F</span>! (358 min.)
+            </li>
+            <li class="run failed" data-runid="9598517">
+              <div class="balloon problem-5"></div> Team <span class="team">초롱초롱 어피치 22</span> got <span class="status">NO</span> on <span class="problem">F</span>! (358 min.)
+            </li>
+            <li class="run failed" data-runid="9598493">
+              <div class="balloon problem-4"></div> Team <span class="team">젠틀한 라이언 13</span> got <span class="status">NO</span> on <span class="problem">E</span>! (358 min.)
+            </li>
+            <li class="run failed" data-runid="9598491">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (358 min.)
+            </li>
+            <li class="run failed" data-runid="9598489">
+              <div class="balloon problem-5"></div> Team <span class="team">멋쟁이 어피치 74</span> got <span class="status">NO</span> on <span class="problem">F</span>! (358 min.)
+            </li>
+            <li class="run accepted" data-runid="9598472">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">YES</span> on <span class="problem">C</span>! (358 min.)
+            </li>
+            <li class="run failed" data-runid="9598467">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 68</span> got <span class="status">NO</span> on <span class="problem">C</span>! (358 min.)
+            </li>
+            <li class="run failed" data-runid="9598430">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (357 min.)
+            </li>
+            <li class="run failed" data-runid="9598346">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (356 min.)
+            </li>
+            <li class="run failed" data-runid="9598254">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (354 min.)
+            </li>
+            <li class="run failed" data-runid="9598150">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (352 min.)
+            </li>
+            <li class="run failed" data-runid="9598098">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (351 min.)
+            </li>
+            <li class="run accepted" data-runid="9598063">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 40</span> got <span class="status">YES</span> on <span class="problem">C</span>! (351 min.)
+            </li>
+            <li class="run failed" data-runid="9597981">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (349 min.)
+            </li>
+            <li class="run failed" data-runid="9597962">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (349 min.)
+            </li>
+            <li class="run failed" data-runid="9597961">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (349 min.)
+            </li>
+            <li class="run accepted" data-runid="9597935">
+              <div class="balloon problem-4"></div> Team <span class="team">초롱초롱 무지 47</span> got <span class="status">YES</span> on <span class="problem">E</span>! (348 min.)
+            </li>
+            <li class="run failed" data-runid="9597879">
+              <div class="balloon problem-4"></div> Team <span class="team">초롱초롱 네오 55</span> got <span class="status">NO</span> on <span class="problem">E</span>! (347 min.)
+            </li>
+            <li class="run failed" data-runid="9597868">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (347 min.)
+            </li>
+            <li class="run accepted" data-runid="9597859">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 28</span> got <span class="status">YES</span> on <span class="problem">C</span>! (347 min.)
+            </li>
+            <li class="run accepted" data-runid="9597846">
+              <div class="balloon problem-2"></div> Team <span class="team">신난 프로도 64</span> got <span class="status">YES</span> on <span class="problem">C</span>! (347 min.)
+            </li>
+            <li class="run accepted" data-runid="9597837">
+              <div class="balloon problem-3"></div> Team <span class="team">초롱초롱 어피치 99</span> got <span class="status">YES</span> on <span class="problem">D</span>! (347 min.)
+            </li>
+            <li class="run failed" data-runid="9597819">
+              <div class="balloon problem-2"></div> Team <span class="team">신난 프로도 64</span> got <span class="status">NO</span> on <span class="problem">C</span>! (346 min.)
+            </li>
+            <li class="run failed" data-runid="9597817">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 40</span> got <span class="status">NO</span> on <span class="problem">C</span>! (346 min.)
+            </li>
+            <li class="run accepted" data-runid="9597808">
+              <div class="balloon problem-2"></div> Team <span class="team">초롱초롱 콘 32</span> got <span class="status">YES</span> on <span class="problem">C</span>! (346 min.)
+            </li>
+            <li class="run accepted" data-runid="9597786">
+              <div class="balloon problem-3"></div> Team <span class="team">신난 프로도 20</span> got <span class="status">YES</span> on <span class="problem">D</span>! (346 min.)
+            </li>
+            <li class="run failed" data-runid="9597690">
+              <div class="balloon problem-5"></div> Team <span class="team">멋쟁이 어피치 74</span> got <span class="status">NO</span> on <span class="problem">F</span>! (344 min.)
+            </li>
+            <li class="run failed" data-runid="9597646">
+              <div class="balloon problem-4"></div> Team <span class="team">엄지척 무지 00</span> got <span class="status">NO</span> on <span class="problem">E</span>! (343 min.)
+            </li>
+            <li class="run failed" data-runid="9597629">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (343 min.)
+            </li>
+            <li class="run failed" data-runid="9597615">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 28</span> got <span class="status">NO</span> on <span class="problem">C</span>! (343 min.)
+            </li>
+            <li class="run accepted" data-runid="9597601">
+              <div class="balloon problem-5"></div> Team <span class="team">엄지척 콘 83</span> got <span class="status">YES</span> on <span class="problem">F</span>! (342 min.)
+            </li>
+            <li class="run failed" data-runid="9597582">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 68</span> got <span class="status">NO</span> on <span class="problem">C</span>! (342 min.)
+            </li>
+            <li class="run failed" data-runid="9597581">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (342 min.)
+            </li>
+            <li class="run failed" data-runid="9597560">
+              <div class="balloon problem-2"></div> Team <span class="team">여유로운 어피치 29</span> got <span class="status">NO</span> on <span class="problem">C</span>! (342 min.)
+            </li>
+            <li class="run failed" data-runid="9597527">
+              <div class="balloon problem-5"></div> Team <span class="team">초롱초롱 어피치 22</span> got <span class="status">NO</span> on <span class="problem">F</span>! (341 min.)
+            </li>
+            <li class="run failed" data-runid="9597489">
+              <div class="balloon problem-2"></div> Team <span class="team">신난 프로도 64</span> got <span class="status">NO</span> on <span class="problem">C</span>! (340 min.)
+            </li>
+            <li class="run failed" data-runid="9597419">
+              <div class="balloon problem-2"></div> Team <span class="team">여유로운 어피치 29</span> got <span class="status">NO</span> on <span class="problem">C</span>! (339 min.)
+            </li>
+            <li class="run failed" data-runid="9597415">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 40</span> got <span class="status">NO</span> on <span class="problem">C</span>! (339 min.)
+            </li>
+            <li class="run failed" data-runid="9597411">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (339 min.)
+            </li>
+            <li class="run failed" data-runid="9597345">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (337 min.)
+            </li>
+            <li class="run failed" data-runid="9597330">
+              <div class="balloon problem-2"></div> Team <span class="team">신난 프로도 64</span> got <span class="status">NO</span> on <span class="problem">C</span>! (337 min.)
+            </li>
+            <li class="run failed" data-runid="9597329">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (337 min.)
+            </li>
+            <li class="run failed" data-runid="9597316">
+              <div class="balloon problem-5"></div> Team <span class="team">부끄러운 어피치 23</span> got <span class="status">NO</span> on <span class="problem">F</span>! (337 min.)
+            </li>
+            <li class="run failed" data-runid="9597312">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (337 min.)
+            </li>
+            <li class="run failed" data-runid="9597301">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (337 min.)
+            </li>
+            <li class="run failed" data-runid="9597288">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (337 min.)
+            </li>
+            <li class="run failed" data-runid="9597275">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (336 min.)
+            </li>
+            <li class="run failed" data-runid="9597273">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (336 min.)
+            </li>
+            <li class="run failed" data-runid="9597253">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (336 min.)
+            </li>
+            <li class="run failed" data-runid="9597248">
+              <div class="balloon problem-5"></div> Team <span class="team">부끄러운 어피치 23</span> got <span class="status">NO</span> on <span class="problem">F</span>! (336 min.)
+            </li>
+            <li class="run failed" data-runid="9597231">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (336 min.)
+            </li>
+            <li class="run failed" data-runid="9597225">
+              <div class="balloon problem-2"></div> Team <span class="team">신난 프로도 64</span> got <span class="status">NO</span> on <span class="problem">C</span>! (335 min.)
+            </li>
+            <li class="run failed" data-runid="9597219">
+              <div class="balloon problem-4"></div> Team <span class="team">초롱초롱 어피치 33</span> got <span class="status">NO</span> on <span class="problem">E</span>! (335 min.)
+            </li>
+            <li class="run failed" data-runid="9597214">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (335 min.)
+            </li>
+            <li class="run failed" data-runid="9597199">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (335 min.)
+            </li>
+            <li class="run failed" data-runid="9597192">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (335 min.)
+            </li>
+            <li class="run failed" data-runid="9597180">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 40</span> got <span class="status">NO</span> on <span class="problem">C</span>! (335 min.)
+            </li>
+            <li class="run failed" data-runid="9597141">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (334 min.)
+            </li>
+            <li class="run failed" data-runid="9597047">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 40</span> got <span class="status">NO</span> on <span class="problem">C</span>! (333 min.)
+            </li>
+            <li class="run failed" data-runid="9597035">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (332 min.)
+            </li>
+            <li class="run failed" data-runid="9597013">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (332 min.)
+            </li>
+            <li class="run failed" data-runid="9596975">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 40</span> got <span class="status">NO</span> on <span class="problem">C</span>! (331 min.)
+            </li>
+            <li class="run failed" data-runid="9596940">
+              <div class="balloon problem-4"></div> Team <span class="team">초롱초롱 무지 47</span> got <span class="status">NO</span> on <span class="problem">E</span>! (330 min.)
+            </li>
+            <li class="run failed" data-runid="9596907">
+              <div class="balloon problem-4"></div> Team <span class="team">젠틀한 라이언 13</span> got <span class="status">NO</span> on <span class="problem">E</span>! (330 min.)
+            </li>
+            <li class="run failed" data-runid="9596834">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 68</span> got <span class="status">NO</span> on <span class="problem">C</span>! (328 min.)
+            </li>
+            <li class="run failed" data-runid="9596805">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 28</span> got <span class="status">NO</span> on <span class="problem">C</span>! (328 min.)
+            </li>
+            <li class="run failed" data-runid="9596785">
+              <div class="balloon problem-4"></div> Team <span class="team">젠틀한 라이언 13</span> got <span class="status">NO</span> on <span class="problem">E</span>! (327 min.)
+            </li>
+            <li class="run failed" data-runid="9596750">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (327 min.)
+            </li>
+            <li class="run failed" data-runid="9596731">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 28</span> got <span class="status">NO</span> on <span class="problem">C</span>! (326 min.)
+            </li>
+            <li class="run accepted" data-runid="9596691">
+              <div class="balloon problem-3"></div> Team <span class="team">부끄러운 라이언 68</span> got <span class="status">YES</span> on <span class="problem">D</span>! (325 min.)
+            </li>
+            <li class="run accepted" data-runid="9596664">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 19</span> got <span class="status">YES</span> on <span class="problem">C</span>! (325 min.)
+            </li>
+            <li class="run failed" data-runid="9596662">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (325 min.)
+            </li>
+            <li class="run failed" data-runid="9596656">
+              <div class="balloon problem-2"></div> Team <span class="team">초롱초롱 콘 32</span> got <span class="status">NO</span> on <span class="problem">C</span>! (325 min.)
+            </li>
+            <li class="run failed" data-runid="9596639">
+              <div class="balloon problem-4"></div> Team <span class="team">젠틀한 라이언 13</span> got <span class="status">NO</span> on <span class="problem">E</span>! (325 min.)
+            </li>
+            <li class="run accepted" data-runid="9596621">
+              <div class="balloon problem-4"></div> Team <span class="team">편안한 콘 06</span> got <span class="status">YES</span> on <span class="problem">E</span>! (324 min.)
+            </li>
+            <li class="run failed" data-runid="9596617">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (324 min.)
+            </li>
+            <li class="run failed" data-runid="9596603">
+              <div class="balloon problem-4"></div> Team <span class="team">편안한 콘 06</span> got <span class="status">NO</span> on <span class="problem">E</span>! (324 min.)
+            </li>
+            <li class="run failed" data-runid="9596572">
+              <div class="balloon problem-4"></div> Team <span class="team">편안한 콘 06</span> got <span class="status">NO</span> on <span class="problem">E</span>! (323 min.)
+            </li>
+            <li class="run failed" data-runid="9596566">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 무지 08</span> got <span class="status">NO</span> on <span class="problem">C</span>! (323 min.)
+            </li>
+            <li class="run failed" data-runid="9596500">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 무지 08</span> got <span class="status">NO</span> on <span class="problem">C</span>! (322 min.)
+            </li>
+            <li class="run failed" data-runid="9596443">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (320 min.)
+            </li>
+            <li class="run failed" data-runid="9596389">
+              <div class="balloon problem-5"></div> Team <span class="team">부끄러운 어피치 23</span> got <span class="status">NO</span> on <span class="problem">F</span>! (319 min.)
+            </li>
+            <li class="run failed" data-runid="9596378">
+              <div class="balloon problem-2"></div> Team <span class="team">생각하는 라이언 98</span> got <span class="status">NO</span> on <span class="problem">C</span>! (319 min.)
+            </li>
+            <li class="run failed" data-runid="9596373">
+              <div class="balloon problem-2"></div> Team <span class="team">초롱초롱 콘 32</span> got <span class="status">NO</span> on <span class="problem">C</span>! (319 min.)
+            </li>
+            <li class="run failed" data-runid="9596362">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 28</span> got <span class="status">NO</span> on <span class="problem">C</span>! (318 min.)
+            </li>
+            <li class="run failed" data-runid="9596316">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 80</span> got <span class="status">NO</span> on <span class="problem">F</span>! (318 min.)
+            </li>
+            <li class="run failed" data-runid="9596296">
+              <div class="balloon problem-2"></div> Team <span class="team">부끄러운 라이언 28</span> got <span class="status">NO</span> on <span class="problem">C</span>! (317 min.)
+            </li>
+            <li class="run failed" data-runid="9596244">
+              <div class="balloon problem-4"></div> Team <span class="team">젠틀한 라이언 13</span> got <span class="status">NO</span> on <span class="problem">E</span>! (316 min.)
+            </li>
+            <li class="run failed" data-runid="9596210">
+              <div class="balloon problem-5"></div> Team <span class="team">하트뿅뿅 어피치 30</span> got <span class="status">NO</span> on <span class="problem">F</span>! (315 min.)
+            </li>
+            <li class="run failed" data-runid="9596179">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 무지 08</span> got <span class="status">NO</span> on <span class="problem">C</span>! (315 min.)
+            </li>
+            <li class="run failed" data-runid="9596124">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 82</span> got <span class="status">NO</span> on <span class="problem">C</span>! (314 min.)
+            </li>
+            <li class="run failed" data-runid="9596081">
+              <div class="balloon problem-2"></div> Team <span class="team">초롱초롱 콘 32</span> got <span class="status">NO</span> on <span class="problem">C</span>! (313 min.)
+            </li>
+            <li class="run failed" data-runid="9596059">
+              <div class="balloon problem-2"></div> Team <span class="team">기뻐하는 프로도 19</span> got <span class="status">NO</span> on <span class="problem">C</span>! (313 min.)
+            </li>
+            <li class="run accepted" data-runid="9596042">
+              <div class="balloon problem-2"></div> Team <span class="team">즐거운 네오 89</span> got <span class="status">YES</span> on <span class="problem">C</span>! (313 min.)
+            </li>
+            <li class="run failed" data-runid="9595947">
+              <div class="balloon problem-4"></div> Team <span class="team">초롱초롱 무지 47</span> got <span class="status">NO</span> on <span class="problem">E</span>! (311 min.)
+            </li>
+          </ul>
+          <div class="slimScrollBar ui-draggable" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; left: 1px;"></div>
+          <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
