@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://contest.kakaocode.com/info -->
+<html lang="ko"><script type="text/javascript" async="" src="./index_files/analytics.js"></script><script id="allow-copy_script">(function agent() {
+    let isUnlockingCached = false
+    const isUnlocking = () => isUnlockingCached
+    document.addEventListener('allow_copy', event => {
+      const { unlock } = event.detail
+      isUnlockingCached = unlock
+    })
+
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = e => {
+      if (isUnlocking()) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach(evt => {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()</script><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>카카오 코드페스티벌 2018</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:type" content="website"><meta property="og:title" content="2018 카카오 코드 페스티벌"><meta property="og:description" content="(8/2 접수 마감) 카카오가 준비한 대학(원)생 알고리즘 프로그래밍 경진대회, 카카오 코드 페스티벌에 지금 바로 등록하세요!"><meta property="og:image" content="https://www.kakaocode.com/images/o.png"><meta property="og:url" content="https://contest.kakaocode.com"><meta property="og:site_name" content="코드 페스티벌"><meta name="format-detection" content="telephone=no"><meta name="msapplication-config" content="none">	<link rel="apple-touch-icon" sizes="180x180" href="https://contest.kakaocode.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://contest.kakaocode.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://contest.kakaocode.com/favicon-16x16.png">
+<link rel="manifest" href="https://contest.kakaocode.com/site.webmanifest">
+<link rel="mask-icon" href="https://contest.kakaocode.com/safari-pinned-tab.svg" color="#fec40a">
+<meta name="msapplication-TileColor" content="#fec40a">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="./index_files/bootstrap.min.css"><link rel="stylesheet" href="./index_files/style.css"><link href="./index_files/css" rel="stylesheet"><link rel="stylesheet" href="./index_files/connect.css"><link rel="stylesheet" href="./index_files/result.css"><link rel="stylesheet" href="./index_files/custom.css"><link rel="stylesheet" href="./index_files/font-awesome.css"><link rel="stylesheet" href="./index_files/blue.css"><link rel="stylesheet" href="./index_files/pace.css">
+
+<script async="" src="./index_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-10874097-27');
+</script>
+
+
+<link rel="stylesheet" href="./index_files/noty.min.css"><meta name="username" content="">
+    
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="  pace-done"><div id="MathJax_Message" style="display: none;"></div><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+    <div class="wrapper">
+        <div class="header no-print">
+	<div class="topbar">
+		<div class="container">
+			<ul class="loginbar pull-right">
+									<li><a href="https://contest.kakaocode.com/login?next=%2Finfo">로그인</a></li>
+							</ul>
+		</div>
+	</div>
+    <div class="navbar navbar-default mega-menu" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <a class="navbar-brand" href="https://contest.kakaocode.com/">
+                    <img id="logo-header" src="./index_files/006@2x.png" alt="Logo" data-retina="">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+	                	  					<li class="active"><a href="https://contest.kakaocode.com/info">안내</a></li>
+	  					  					  					<li><a href="https://contest.kakaocode.com/language">언어</a></li>
+	  					  				                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<form action="https://contest.kakaocode.com/logout" method="post" id="logout_form">
+	<input type="hidden" value="%2Finfo" name="next">
+</form>
+        
+<div class="breadcrumbs">
+    <div class="container">
+	    <h1 class="pull-left">대회 안내</h1>
+    </div>
+</div>
+<div class="container content">
+	<div class="col-md-12" style="font-size: medium; line-height: 1.6em;">
+		<h1>2018 카카오 "Code Festival"</h1>
+
+<p>코드 페스티벌에 오신 것을 환영합니다!</p>
+
+<p>카카오가 준비한 대학(원)생을 위한 알고리즘 프로그래밍 경진대회를 마음껏 즐기시기 바랍니다!</p>
+
+<h2>&nbsp;</h2>
+
+<h2>대회 중 문의</h2>
+
+<p>대회 중 질문은 카카오톡 플러스친구(카카오코드)나 대회 플랫폼을 통해&nbsp;문의해 주세요.</p>
+
+<ul>
+	<li>플러스친구 맺기: 카카오톡 친구 목록 상단, 검색 아이콘 클릭 → '카카오코드' 검색 후 친구 추가</li>
+	<li>문의 내용: 예선 대회 당일 및 대회 관련 모든 사항</li>
+	<li>문의 가능 시간: 예선 대회 당일은 오후 12시부터 대회 종료 시까지 (그 외에는 월~금 11~19시, 공휴일 제외)</li>
+	<li>카카오톡 PC버전(Windows, MacOS) 설치: <a href="https://www.kakaocorp.com/service/KakaoTalk" target="_blank">https://www.kakaocorp.com/service/KakaoTalk</a> 참고</li>
+</ul>
+
+<h2>&nbsp;</h2>
+
+<h2>사용언어</h2>
+
+<ul>
+	<li>C, C++, Java, Python 2, Python 3, Kotlin</li>
+	<li>컴파일러 버전 및 실행 옵션은 상단 [언어] 탭&nbsp;참고</li>
+</ul>
+
+<h2>&nbsp;</h2>
+
+<h2>대회 규칙 (예선/본선 공통, 위반 시 탈락 처리될 수 있습니다.)</h2>
+
+<ul>
+	<li>개인만 참여할 수 있습니다.</li>
+	<li>대회 계정 정보를 타인에게 유출할 수 없습니다.&nbsp;</li>
+	<li>타인의 도움을 받거나 타인의 코드를 복사할 수 없습니다.&nbsp;</li>
+	<li>접수 시 기재한 인적사항과 실제 인적사항이 상이할 시 신청 및 수상이 취소될 수 있습니다.</li>
+	<li>대회 종료 전, 문제에 대한 정보를 타인으로부터 받거나 타인에게 공유할 수 없습니다.</li>
+	<li>공개된 소스 코드를 사용할 경우, 반드시 출처를 표기하시기 바랍니다.</li>
+	<li>대회 운영 혹은 타인의 대회 참가를 방해하는 행위를 해서는 안 됩니다.</li>
+	<li>제출된 코드에서는 문제 풀이와 관계없는 시스템 함수 호출을 금합니다.</li>
+</ul>
+
+<h2>&nbsp;</h2>
+
+<h2>채점 기준 (예선/본선 공통)</h2>
+
+<ul>
+	<li>제출된 코드가 모든 테스트 케이스를 통과, 즉 지정된 제한 시간 안에 정답을 출력하고 정상 종료한 경우 정답으로 인정됩니다.</li>
+	<li>순위는 푼 문제 수가 많은 순서대로 매겨지며, 푼 문제 수가 같을 경우 전체 시간이 낮은 순으로 순위가 결정됩니다.
+	<ul>
+		<li>전체 시간이란 대회의 시작 시간부터 각 문제에 대해 처음으로 정답 코드를 제출한 시간, 그리고 '페널티'의 합입니다.</li>
+		<li>페널티는 정답 판정을 받기 전까지 제출한 오답 횟수마다 20분 씩 가산되는 값입니다. 풀지 못한 문제에 대해서는 페널티가 가산되지 않습니다.</li>
+		<li>이상의 규칙은 ACM-ICPC의 순위 산정 방식과 동일합니다.</li>
+	</ul>
+	</li>
+	<li>전체 시간이 같은 경우 마지막으로 푼 문제의 제출 시각이 빠른 순서대로 순위가 결정됩니다.</li>
+</ul>
+
+<h2>&nbsp;</h2>
+
+<h2>대회일정</h2>
+
+<ul>
+	<li>등록: 2018년 8월 2일(목) 오후 6시까지</li>
+	<li>예선(online): 2018년 8월 4일(토) 오후 1시~7시</li>
+	<li>예선 결과 발표: 2018년 8월 10일(금) 오후 6시</li>
+	<li>본선(offline): 2018년 8월 25일(토) 오후 1시~6시 (장소: 카카오 판교오피스, 시간은 사정에 따라 변경될 수 있음)</li>
+</ul>
+
+<h2>&nbsp;</h2>
+
+<h2>특별한 혜택</h2>
+
+<ul>
+	<li>본선 입상자는 카카오 입사지원 시 서류전형/코딩테스트 면제</li>
+	<li>우수한 성적을 거둔 분들을 위한 인턴 프로그램 제안 예정</li>
+</ul>
+
+<h2>&nbsp;</h2>
+
+<h2>FAQ</h2>
+
+<p>Q. 어떤 방식으로 대회가 진행되나요?<br>
+A. 카카오 코드 페스티벌은 스타트링크 플랫폼에서 진행됩니다. 7월 31일부터 8월 3일까지 진행될 예비소집 대회를 통해 미리 경험해보세요.</p>
+
+<p>Q. 본선은 몇 명 진출하나요?<br>
+A. 64명을 계획하고 있습니다.</p>
+
+<p>Q. 예선이 1시~7시인데, 그 시간 중 아무때나 접속하면 되나요?&nbsp;<br>
+A. 1시 이후에도 참가 가능하나, 입장과 무관하게 7시에 일괄 종료됩니다.</p>
+
+<p>Q. 문제는 영어로 출제되나요?<br>
+A. 문제는 한국어로 출제됩니다.</p>
+
+<p>Q. 본선은 어떻게 진행되나요?&nbsp;<br>
+A. 예선 후 사이트(https://www.kakaocode.com)와 예선 합격자 개별 메일로 안내 될 예정입니다. 조금만 기다려주세요!</p>
+
+<p>Q. 언어별 채점 환경은 동일한가요?<br>
+A. 언어에 따른 추가 시간 혹은 추가 메모리 제한은 적용되지 않으며, 어떤 언어로 작성하더라도 같은 시간과 메모리 제한을 적용합니다. 따라서 각 문제에 맞는 적절한 언어를 선택하셔야 합니다.</p>
+
+	</div>
+</div>
+
+        <div class="footer-v3 no-print">
+    
+    <div class="copyright">
+        <div class="container">
+	        <div class="row">
+		        <div class="col-md-12">
+			        <p>대회 플랫폼은 <a href="https://startlink.io/">스타트링크</a>의 <a href="https://www.acmicpc.net/">Baekjoon Online Judge</a>에서 제공합니다.</p>
+		        </div>
+	        </div>
+        </div>
+    </div>      
+</div>
+    </div>
+    
+<script src="./index_files/js(1)" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(101131492); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101131492ns.gif" /></p></noscript>
+<script src="./index_files/jquery.min.js"></script><script src="./index_files/jquery-migrate.min.js"></script><script type="text/javascript" src="./index_files/bootstrap.min.js"></script><script type="text/javascript" src="./index_files/moment.min.js"></script><script type="text/javascript" src="./index_files/ko.js"></script><script type="text/javascript" src="./index_files/back-to-top.js"></script><script type="text/javascript" src="./index_files/app.min.js"></script><script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+    });
+</script><!--[if lt IE 9]><script src="https://ddo7jzca0m2vt.cloudfront.net/unify/plugins/respond.js"></script><script src="https://ddo7jzca0m2vt.cloudfront.net/unify/plugins/html5shiv.js"></script><script src="https://ddo7jzca0m2vt.cloudfront.net/unify/js/plugins/placeholder-IE-fixes.js"></script><![endif]--><script type="text/javascript" src="./index_files/pace.min.js"></script><script src="./index_files/pusher.min.js"></script><script src="./index_files/noty.min.js"></script>
+    <script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+	showProcessingMessages: false,
+	messageStyle: "none",
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/SVG"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		preview: ["수식"],
+		ignoreClass: "no-mathjax|redactor-editor",
+		processClass: 'mathjax'
+	},
+	"SVG": { 
+		availableFonts: ["TeX", "STIX"], 
+		linebreaks: { 
+			automatic: true, 
+			width: "container" 
+		},
+		preferredFont: "TeX",
+		showMathMenu: false,
+		scale: 90,
+		undefinedFamily: "'Open Sans', 'Apple SD Gothic Neo', 'Noto Sans CJK KR', 'Noto Sans KR', '나눔바른고딕', '나눔고딕', '맑은고딕', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+	},
+	TeX: { equationNumbers: { autoNumber: "AMS" } } ,
+});
+</script><script type="text/javascript" src="./index_files/MathJax.js"></script>
+    
+
+<script type="text/javascript" async="" src="./index_files/in.php"></script><div id="topcontrol" title="Scroll Back to Top" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;"></div></body></html>

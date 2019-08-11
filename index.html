@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script id="allow-copy_script">(function agent() {
+    let isUnlockingCached = false
+    const isUnlocking = () => isUnlockingCached
+    document.addEventListener('allow_copy', event => {
+      const { unlock } = event.detail
+      isUnlockingCached = unlock
+    })
+
+    const copyEvents = [
+      'copy',
+      'cut',
+      'contextmenu',
+      'selectstart',
+      'mousedown',
+      'mouseup',
+      'mousemove',
+      'keydown',
+      'keypress',
+      'keyup',
+    ]
+    const rejectOtherHandlers = e => {
+      if (isUnlocking()) {
+        e.stopPropagation()
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+      }
+    }
+    copyEvents.forEach(evt => {
+      document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+        capture: true,
+      })
+    })
+  })()</script>
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta property="og:title" content="2018 카카오 코드 페스티벌">
+    <meta property="og:description" content="(8/2 접수 마감) 카카오가 준비한 대학(원)생 알고리즘 프로그래밍 경진대회, 카카오 코드 페스티벌에 지금 바로 등록하세요!">
+    <meta property="og:image" content="https://www.kakaocode.com/images/o.png">
+    <meta property="og:url" content="https://www.kakaocode.com">
+    <meta property="og:site_name" content="코드 페스티벌">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="jROeR7Dyx7EO7lSkM3qm8QGA5xO/3pkvvVUDDILiwJgAn12bXKrapUJJ6Ov1vOZ7NH01IdGIVFdDLSE2KchJ9Q==">
+    <link rel="stylesheet" media="all" href="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/application-51d6948d724533c4f4dc300b684bd107af29758fb4a2a2bce22e722c7dc7fe70.css">
+    <script src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/application-5cedef0f7f78140228222eda87442ad3f81c527ca55944c3a6e720145cab9e76.js"></script>
+    <title>카카오 코드 페스티벌</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="main-title">KAKAO CODE FESTIVAL NEWLINE</h1>
+    </header>
+    <div id="video-background">
+      <section id="video-placeholder"></section>
+      <section id="video-wrapper"></section>
+    </div>
+    <section id="description">
+      <p>
+      대학(원)생 프로그래밍 경진대회,<br class="mobile-only">
+      카카오 코드 페스티벌에 여러분을 초대합니다!<br><br class="mobile-only">
+      본 대회의 우수 성적자들에게는<br class="mobile-only">
+      상금, 입사 지원 특전, 인턴 등 다양한 혜택이 주어집니다.
+      </p>
+      <hr>
+      <h2>참가 대상</h2>
+      <p>
+      참가 등록일 기준, 대학(원) 재/휴학생<br class="mobile-only">
+      (2018년 8월 졸업예정자까지 등록 가능)
+      </p>
+      <hr>
+      <h2>대회 일정</h2>
+      <ul>
+        <li>등록: 2018년 8월 2일(목) 18:00까지</li>
+        <li>예선(online): 2018년 8월 4일(토) 13:00-19:00</li>
+        <li>예선 결과 발표: 2018년 8월 10일(금) 18:00</li>
+        <li>본선(offline): 2018년 8월 25일(토) 11:30-19:00</li>
+      </ul>
+      <hr>
+      <h2>본선 일정</h2>
+      <p>
+        2018년 8월 25일(토) 11:30-19:00 
+        </p><ul>
+          <li>등록: 11:30-12:30 (신분증 지참, 지각 시 참여 불가, 다과 제공 예정)</li>
+          <li>OT/문제풀이: 12:30-16:30 (현장 상황에 따라 변동될 수 있음)</li>
+          <li>다과만찬: 16:30-17:30</li>
+          <li>시상: 17:30-19:00</li>
+        </ul>
+      <p></p>
+      <hr>
+      <h2>예선 결과</h2>
+      <p>
+        예선 참가자 중, 상위 64명이 본선에 진출하였습니다!<br>
+        상세 결과는 아래 순위표를 참고해주세요.<br><br>
+        <a href="http://tech.kakao.com/2018/08/09/code-festival-2018-round-1/" target="_blank">▶ 예선 문제 및 해설 보러 가기</a><br>
+        <a href="https://www.kakaocode.com/scoreboard" target="_blank">▶ 순위표 보러 가기</a>
+      </p>
+      <hr>
+      <h2>본선 장소</h2>
+      <ul>
+        <li>카카오 판교 오피스<br>
+        경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 7층</li>
+        <li>본선 당일 11:00-12:00 셔틀버스 운영<br>
+        (야탑역 3번 출구(우리은행 앞) - 판교역 4번 출구(버스정류장) - 카카오 판교 오피스)</li>
+        <li>주차 가능</li>
+      </ul>
+      <div id="map-wrapper">
+        <div id="map" style="position: relative; overflow: hidden; background: url(&quot;http://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;https://i1.daumcdn.net/dmaps/apis/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;https://i1.daumcdn.net/dmaps/apis/cursor/openhand.cur.ico&quot;), default;"><div style="position: absolute;"><div style="position: absolute; z-index: 0;"></div><div style="position: absolute; z-index: 1; left: 0px; top: 0px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/934.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -17px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/935.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 239px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/936.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 495px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/937.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 751px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/938.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1007px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/934(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -17px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/935(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 239px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/936(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 495px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/937(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 751px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/938(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1007px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/934(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -17px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/935(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 239px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/936(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 495px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/937(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 751px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/938(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1007px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/934(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -17px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/935(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 239px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/936(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 495px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/937(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 751px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/938(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1007px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"></div><div style="position: absolute; z-index: 1;"></div><div style="width: 920px; height: 540px; position: absolute; z-index: 1;"></div><div style="position: absolute; z-index: 1;"><svg version="1.1" style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; width: 4600px; height: 2700px; left: -1840px; top: -1080px;" viewBox="0 0 4600 2700"><defs></defs></svg></div><div style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);"><div style="position: absolute; margin: -39px 0px 0px -14px; z-index: 0; left: 460px; top: 270px;"><img draggable="false" src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/marker.png" alt="" title="" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; clip: rect(0px, 29px, 42px, 0px); top: 0px; left: 0px; width: 29px; height: 42px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/transparent.gif" alt="" draggable="false" usemap="#daum.maps.Marker.Area:1" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; width: 29px; height: 42px;"><map id="daum.maps.Marker.Area:1" name="daum.maps.Marker.Area:1"><area href="javascript:void(0)" alt="" shape="poly" coords="14,39,9,27,4,21,1,16,1,10,4,4,11,0,18,0,25,4,28,10,28,16,25,21,20,27" title="" style="-webkit-tap-highlight-color: transparent;"></map></div></div></div></div><div style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; left: 0px; bottom: 0px; color: rgb(0, 0, 0);"><div style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: left;"><div style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s ease 0s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 46px;"></div><div style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">50m</div></div><div style="margin: 0px 4px; float: left;"><a target="_blank" href="http://map.kakao.com/" title="Kakao 지도로 보시려면 클릭하세요." style="float: left; width: 32px; height: 10px;"><img src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/m_bi_b.png" alt="Kakao 지도로 이동" style="float: left; width: 32px; height: 10px; border: none;"></a><div style="font: 11px/11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div></div></div><div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"></div><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;http://i1.daumcdn.net/dmaps/apis/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;http://i1.daumcdn.net/dmaps/apis/cursor/openhand.cur.ico&quot;), default;"><div style="position: absolute;"><div style="position: absolute; z-index: 0;"></div><div style="position: absolute; z-index: 1; left: 0px; top: 0px;"><img src="./index_files/934.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -17px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/935.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 239px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/936.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 495px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/937.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 751px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/938.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1007px; top: 341px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/934(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -17px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/935(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 239px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/936(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 495px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/937(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 751px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/938(1).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1007px; top: 85px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/934(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -17px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/935(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 239px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/936(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 495px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/937(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 751px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/938(2).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1007px; top: -171px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/934(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -17px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/935(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 239px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/936(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 495px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/937(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 751px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="./index_files/938(3).png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 1007px; top: -427px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"></div><div style="position: absolute; z-index: 1;"></div><div style="width: 920px; height: 540px; position: absolute; z-index: 1;"></div><div style="position: absolute; z-index: 1;"><svg version="1.1" style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; width: 4600px; height: 2700px; left: -1840px; top: -1080px;" viewBox="0 0 4600 2700"><defs></defs></svg></div><div style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);"><div style="position: absolute; margin: -39px 0px 0px -14px; z-index: 0; left: 460px; top: 270px;"><img draggable="false" src="./index_files/marker.png" alt="" title="" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; clip: rect(0px, 29px, 42px, 0px); top: 0px; left: 0px; width: 29px; height: 42px;"><img src="./index_files/transparent.gif" alt="" draggable="false" usemap="#daum.maps.Marker.Area:1" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; width: 29px; height: 42px;"><map id="daum.maps.Marker.Area:1" name="daum.maps.Marker.Area:1"><area href="javascript:void(0)" alt="" shape="poly" coords="14,39,9,27,4,21,1,16,1,10,4,4,11,0,18,0,25,4,28,10,28,16,25,21,20,27" title="" style="-webkit-tap-highlight-color: transparent;"></map></div></div></div></div><div style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; left: 0px; bottom: 0px; color: rgb(0, 0, 0);"><div style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: left;"><div style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s ease 0s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 46px;"></div><div style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">50m</div></div><div style="margin: 0px 4px; float: left;"><a target="_blank" href="http://map.kakao.com/" title="Kakao 지도로 보시려면 클릭하세요." style="float: left; width: 32px; height: 10px;"><img src="./index_files/m_bi_b.png" alt="Kakao 지도로 이동" style="float: left; width: 32px; height: 10px; border: none;"></a><div style="font: 11px/11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div></div></div><div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"></div></div>
+        <a id="map-link" href="https://m.map.daum.net/actions/detailMapView?id=18577297" target="_blank">크게 보기</a>
+      </div>
+      <hr>
+      <h2>본선 대회 환경</h2>
+      <ul>
+        <li>인터넷: 접속 불가</li>
+        <li>
+          PC 환경
+          <ul>
+            <li>OS: Ubuntu 16.04.3 LTS Linux (64-bit)</li>
+            <li>Program: vim, gvim, emacs, gedit, Eclipse 4.8 Photon (Java/CDT/PyDev), Code::Blocks 17.12, IntelliJ IDEA Community Edition 2018.2.1(Java/Kotlin), PyCharm Community Edition 2018.2.1</li>
+          </ul>
+        </li>
+        <li>
+          제공 문서
+          <ul>
+            <li>Java 8 API Documents</li>
+            <li>C/C++ Reference</li>
+            <li>Python2 Language Reference / Standard Library</li>
+            <li>Python3 Language Reference / Standard Library</li>
+          </ul>
+        </li>
+        <li>
+          지참 가능 물품
+          <ul>
+            <li>책이나 인쇄된 자료는 제한 없이 반입 가능, 그 외 이동식 저장매체 등은 반입 불가</li>
+            <li>USB 키보드로 교체할 수 있으나, 사용 시 책임은 개인에 있음</li>
+          </ul>
+        </li>
+      </ul>
+      <hr>
+      <h2>대회 규칙 및 채점 기준</h2>
+      <p>
+        예선과 동일함(대회 플랫폼 안내 참고, <a href="https://contest.kakaocode.com/" target="_blank">https://contest.kakaocode.com/</a>)
+      </p>
+      <hr>
+      <h2>본선 시상(세후금액 기준)</h2>
+      <table>
+        <thead>
+          <tr>
+            <td>순위</td>
+            <td>상금</td>
+            <td>인원</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="prize" id="first-prize">1등</td>
+            <td>512 만원</td>
+            <td>1명</td>
+          </tr>
+          <tr>
+            <td id="second-prize">2등</td>
+            <td>256 만원</td>
+            <td>2명</td>
+          </tr>
+          <tr>
+            <td id="third-prize">3등</td>
+            <td>128 만원</td>
+            <td>4명</td>
+          </tr>
+          <tr>
+            <td>4등</td>
+            <td>64 만원</td>
+            <td>8명</td>
+          </tr>
+          <tr>
+            <td>5등</td>
+            <td>32 만원</td>
+            <td>16명</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <h2>특별한 혜택</h2>
+      <p>
+      본선 입상자는 카카오 입사지원 시 서류전형/코딩테스트 면제<br>
+      우수한 성적을 거둔 분들을 위한 인턴 프로그램 제안 예정
+      </p>
+      <hr>
+      <h2>FAQ</h2>
+      <ul id="faq-list">
+        <li>
+          <h3>참가 등록은 어떻게 하나요?</h3>
+          <p>대회 참가 등록은 카카오계정 로그인을 통해서만 가능합니다. 아래 참가등록 버튼을 눌러 이후 프로세스를 진행해주세요.</p>
+        </li>
+        <li>
+          <h3>2018년 2월 졸업자도 참여 가능한가요?</h3>
+          <p>본 대회는 대학(원) 재/휴학생을 위한 대회로서, 2018년 2월 기졸업자는 참여가 어렵습니다.</p>
+        </li>
+        <li>
+          <h3>문제는 영어로 출제되나요?</h3>
+          <p>문제는 한국어로 출제됩니다.</p>
+        </li>
+        <li>
+          <h3>어떤 언어를 사용할 수 있나요?</h3>
+          <p>
+          대회에서 사용하실 수 있는 언어는 C, C++, Java, Python 2, Python 3, Kotlin입니다.<br>
+          컴파일러 버전 및 실행 옵션은 <a href="https://contest.kakaocode.com/language" target="_blank">https://contest.kakaocode.com/language</a>를 참고해주세요.
+          </p>
+        </li>
+        <li>
+          <h3>대회는 어떻게 진행되나요?</h3>
+          <p>
+          대회는 <a href="https://contest.kakaocode.com/" target="_blank">https://contest.kakaocode.com</a>에서 진행되며, ID/PW가 개별적으로 안내될 예정입니다.<br>
+          7월 31일 오후 3시부터 8월 3일 오후 3시까지 온라인 예비소집을 진행하니, 대회 전 미리 문제풀이 환경을 경험해보세요.
+          </p>
+        </li>
+        <li>
+          <h3>예비소집 시작 이후에 참가등록을 진행했습니다. 예비소집에 참가할 수 있을까요?</h3>
+          <p>
+          7월 31일 오후 3시까지 등록하신 분은 플러스친구와 메일을 통해 대회에 사용하실 수 있는 계정이 개별 안내되었으니 확인 바랍니다.<br>
+          이후 등록하신 분은 매일 오후 6시에 개별 발송될 예정입니다.
+          </p>
+        </li>
+      </ul>
+      <hr>
+      <h2>문의</h2>
+      <p>카카오톡 플러스친구 '카카오코드' 혹은 codefestival@kakaocorp.com 이메일로 문의</p>
+      <ul>
+        <li>플러스친구 맺기: 카카오톡 친구 목록 상단의 검색 아이콘 클릭 → '카카오코드' 검색 후 친구 추가</li>
+        <li>문의 가능 시간: 월~금 11~19시 (공휴일 제외)</li>
+        <li>카카오톡 PC버전(Windows, MacOS) 설치: <a href="https://www.kakaocorp.com/service/KakaoTalk" target="_blank">https://www.kakaocorp.com/service/KakaoTalk</a> 참고</li>
+      </ul>
+      <hr>
+      <h2>공유하기</h2>
+      <ul id="share-list">
+        <li><a id="talk">카카오톡</a></li><li><a id="story">카카오스토리</a></li><li><a id="facebook">페이스북</a></li><li><a id="twitter">트위터</a></li><li><a id="link" data-clipboard-text="https://www.kakaocode.com">링크 공유</a></li>
+      </ul>
+    </section>
+    <footer>
+      <p>© Kakao Corp.</p>
+    </footer>
+    <script type="text/javascript" src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/sdk.js"></script><script charset="UTF-8" src="./index_files/kakao.js"></script><script charset="UTF-8" src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/kakao.js"></script>
+    <script>
+      var position = new daum.maps.LatLng(37.402056, 127.108212);
+      var mapContainer = document.getElementById('map');
+      var mapOption = {
+        center: position,
+        level: 3
+      };
+      var map = new daum.maps.Map(mapContainer, mapOption);
+      var marker = new daum.maps.Marker({
+          position: position
+      });
+      marker.setMap(map);
+    </script>
+    <script type="text/javascript" src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/kakao.min.js"></script>
+    <script type="text/javascript" src="file:///Users/hunter/github/tech/wordpress/assets/fonts/kakaocode/index_files/player_api.min.js"></script>
+    <script>
+      Kakao.init('6abe154b2f3fdc12f3977bcc3c8f95bb');
+      Kakao.Link.createScrapButton({
+        container: '#talk',
+        requestUrl: 'https://www.kakaocode.com'
+      });
+      $("#story").click(function() {
+        Kakao.Story.share({
+          url: 'https://www.kakaocode.com',
+          text: '2018 카카오 코드 페스티벌, 알고리즘 프로그래밍 경진대회에 도전하세요!'
+        });
+      });
+      $("#facebook").click(function() {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=https://www.kakaocode.com');
+      });
+      $("#twitter").click(function() {
+        window.open('https://twitter.com/intent/tweet?text=2018+%EC%B9%B4%EC%B9%B4%EC%98%A4+%EC%BD%94%EB%93%9C+%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C%2C+%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C%EC%97%90+%EB%8F%84%EC%A0%84%ED%95%98%EC%84%B8%EC%9A%94%21&url=https://www.kakaocode.com');
+      });
+      var clipboard = new ClipboardJS('#link');
+      clipboard.on('success', function() {
+        alert('링크가 복사되었습니다. 원하시는 곳에 붙여넣기해주세요!');
+      });
+      $("#video-placeholder").click(function() {
+        $("#video-placeholder").hide();
+        $("#video-wrapper").show();
+        $("#video-wrapper").html("<iframe id=\"player\" src=\"https://tv.kakao.com/embed/player/cliplink/386525417?service=kakao_tv&wmode=transparent&autoplay=true&rel=0\" allowfullscreen frameborder=\"0\"></iframe>");
+        var playerCallback = {
+          onPlayEnd: function () {
+            $("#video-wrapper").hide();
+            $("#video-placeholder").show();
+          }
+        };
+        var iframe = document.getElementById('player');
+        var id = '386525417';
+        KTP.Player.createWithIframe(iframe, id, playerCallback);
+      });
+    </script>
+
+  
+
+</body></html>
